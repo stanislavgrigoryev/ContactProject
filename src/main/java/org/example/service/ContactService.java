@@ -6,5 +6,4 @@ public interface ContactService {
     void removeContactByEmail(String email);
     void initContacts();
     void saveContactsToFile();
-
 }
