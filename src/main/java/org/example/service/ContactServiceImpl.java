@@ -29,6 +29,7 @@ public class ContactServiceImpl implements ContactService {
     public void removeContactByEmail(String email) {
         Contact contact1 = contactList.stream().filter(contact -> contact.equals(email)).findFirst().orElseThrow();
         contactList.remove(contact1);
+
     }
 
 
