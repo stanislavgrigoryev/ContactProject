@@ -1,8 +1,5 @@
 package org.example.model;
 
-
-import java.util.Objects;
-
 public class Contact {
     private String fullName;
     private String phoneNumber;
@@ -44,16 +41,20 @@ public class Contact {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Contact contact)) return false;
-        return Objects.equals(fullName, contact.fullName) && Objects.equals(phoneNumber, contact.phoneNumber) && Objects.equals(email, contact.email);
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        Contact contact = (Contact) obj;
+
+        return email != null ? email.equals(contact.email) : contact.email == null;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(fullName, phoneNumber, email);
+        return email != null ? email.hashCode() : 0;
     }
+
 
     @Override
     public String toString() {

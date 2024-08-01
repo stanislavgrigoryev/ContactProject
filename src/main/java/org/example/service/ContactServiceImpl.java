@@ -27,11 +27,18 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public void removeContactByEmail(String email) {
-        Contact contact1 = contactList.stream().filter(contact -> contact.equals(email)).findFirst().orElseThrow();
-        contactList.remove(contact1);
+        Contact contactToRemove = contactList.stream()
+                .filter(contact -> contact.getEmail() != null && contact.getEmail().equals(email))
+                .findFirst()
+                .orElse(null);
 
+        if (contactToRemove != null) {
+            contactList.remove(contactToRemove);
+            System.out.println("Contact removed: " + email);
+        } else {
+            System.out.println("Contact not found!");
+        }
     }
-
 
     @Override
     public void initContacts() {
