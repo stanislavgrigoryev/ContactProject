@@ -28,6 +28,9 @@ public class ContactRun {
                         contactService.addContact(parts[0], parts[1], parts[2]);
                     } else {
                         System.out.println("Некорректный формат ввода");
+//                        C:\Users\setka\IdeaProjects\ContactProject\src\main\resources\contacts.txt
+//                        Иванов Иван Иванович;+890999991;someEmail1@example.example
+//                        Смирнов Иван Иванович;+890999991;someEmail2@example.example
                     }
                     break;
                 case "3":
